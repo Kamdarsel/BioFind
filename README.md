@@ -1,6 +1,8 @@
 # BioFind
 Demo del Sistema Multimedia BIOFIND
+
 Enlace para Acceder al Demo: (https://n9.cl/imaginative_-_solutions)
+
 Contenido del Drive:
 Aplicativo para Windows (.exe): Se encuentra dentro de la carpeta Bio-Find.
 Requisitos del Sistema
