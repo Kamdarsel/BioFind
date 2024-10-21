@@ -7,8 +7,12 @@ public class ObjectChecker : MonoBehaviour
     public Button buttonIsPresent;
     public Button buttonIsNotPresent;
 
+    public int Points;  // Puntos obtenidos por la acción actual
     // El objeto que corresponde a esta entrada en la lista
     public GameObject associatedObject;
+
+    // Referencia al controlador de puntos
+    public GameController gc;
 
     void Start()
     {
@@ -23,11 +27,15 @@ public class ObjectChecker : MonoBehaviour
         if (associatedObject.activeSelf)
         {
             Debug.Log("¡Correcto! El objeto está presente.");
+            Points = 100;
         }
         else
         {
             Debug.Log("Incorrecto. El objeto no está presente.");
+            Points = 0;
         }
+
+        // Sumar o restar puntos
     }
 
     void CheckIfObjectIsNotPresent()
@@ -36,10 +44,19 @@ public class ObjectChecker : MonoBehaviour
         if (!associatedObject.activeSelf)
         {
             Debug.Log("¡Correcto! El objeto no está presente.");
+            Points = 100;
         }
         else
         {
             Debug.Log("Incorrecto. El objeto está presente.");
+            Points = 0;
         }
+
+        // Sumar o restar puntos
+    }
+
+    public void SumarpuntosT()
+    {
+        gc.Sumarpuntos(Points);  // Usar el valor de Points para sumar al GameController
     }
 }
