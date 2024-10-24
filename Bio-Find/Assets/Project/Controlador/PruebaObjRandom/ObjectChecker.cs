@@ -58,5 +58,9 @@ public class ObjectChecker : MonoBehaviour
     public void SumarpuntosT()
     {
         gc.Sumarpuntos(Points);  // Usar el valor de Points para sumar al GameController
+        if(Points==0)
+        {
+            gc.AgregarTexto(associatedObject.name);
+        }
     }
 }
