@@ -15,6 +15,6 @@ public class SalirBtnListado : MonoBehaviour
 
     public void Salir2()
     {
-        SceneManager.LoadScene("SampleScene"); 
+        SceneManager.LoadScene("EscenaObjAleatorios"); 
     }
 }

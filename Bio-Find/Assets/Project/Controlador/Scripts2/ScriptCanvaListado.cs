@@ -10,7 +10,7 @@ public class ScriptCanvaListado : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L))
+        if(Input.GetButtonDown("Fire2"))
         {
             Cambio=!Cambio;
             CanvaListado.SetActive(Cambio);
