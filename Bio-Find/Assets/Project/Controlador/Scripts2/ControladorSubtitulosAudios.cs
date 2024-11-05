@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ControladorSubtitulosAudios : MonoBehaviour
 {
-    public GameObject CanvaDemostracion,CanvaInicial,CanvaSubtitulo, CanvaPausa;
+    public GameObject CanvaDemostracion, CanvaInicial, CanvaSubtitulo, CanvaPausa;
     public AudioSource As;
     public AudioClip Inicial, Segundo, Tercero;
     public DialogueScript dialogueScript;
+    public Animator npcAnimator; // Añadido: referencia al Animator del NPC
 
     void Awake()
     {
@@ -18,14 +19,18 @@ public class ControladorSubtitulosAudios : MonoBehaviour
     {
         CanvaDemostracion.SetActive(false);
         dialogueScript.StartDialogue();
+        
         As.clip = Inicial;
         As.Play();
+        npcAnimator.SetTrigger("InicialAnim"); // Reproduce la animación para el audio Inicial
         CanvaInicial.SetActive(true);
     }
+
     public void ApagarInicial()
     {
         CanvaInicial.SetActive(false);
     }
+
     public void ApagarPausa()
     {
         CanvaPausa.SetActive(false);
@@ -41,17 +46,22 @@ public class ControladorSubtitulosAudios : MonoBehaviour
         As.Stop();
         CanvaDemostracion.SetActive(false);
         CanvaInicial.SetActive(false);
-        As.clip=Segundo;
+        
+        As.clip = Segundo;
         As.Play();
+        npcAnimator.SetTrigger("SegundoAnim"); // Reproduce la animación para el audio Segundo
+        
         StartCoroutine(MostrarCanva());
     }
 
-   IEnumerator MostrarCanva()
+    IEnumerator MostrarCanva()
     {
         yield return new WaitForSeconds(12);
+        
         dialogueScript.NextLine();
+        
         As.clip = Tercero;
         As.Play();
+        npcAnimator.SetTrigger("TerceroAnim"); // Reproduce la animación para el audio Tercero
     }
-
 }
